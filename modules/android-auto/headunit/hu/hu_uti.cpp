@@ -2,7 +2,7 @@
 
 #define LOGTAG "hu_uti"
 #include "hu_uti.h"
-#include "hu.pb.h"
+#include "generated.x64/hu.pb.h"
 
 #include <stdio.h>
 #include <stdlib.h>

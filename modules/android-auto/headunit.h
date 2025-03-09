@@ -19,9 +19,9 @@
 
 #include "qgstvideobuffer.h"
 
-#include "glib_utils.h"
-#include "hu_aap.h"
-#include "hu_uti.h"
+#include "headunit/common/glib_utils.h"
+#include "headunit/hu/hu_aap.h"
+#include "headunit/hu/hu_uti.h"
 
 class Headunit;
 

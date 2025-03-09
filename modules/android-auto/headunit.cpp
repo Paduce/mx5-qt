@@ -11,8 +11,8 @@
 #include <gst/app/gstappsrc.h>
 #include <gst/app/gstappsink.h>
 #include <gst/video/video.h>
-#include "hu_uti.h"
-#include "hu_aap.h"
+#include "headunit/hu/hu_uti.h"
+#include "headunit/hu/hu_aap.h"
 
 Headunit::Headunit(QObject *parent) : QObject(parent),
     callbacks(this)

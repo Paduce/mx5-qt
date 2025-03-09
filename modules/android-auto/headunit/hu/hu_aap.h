@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 #include <thread>
-#include "hu.pb.h"
+#include "generated.x64/hu.pb.h"
 #include "hu_ssl.h"
 #include "hu_uti.h"
 

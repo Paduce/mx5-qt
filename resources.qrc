@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/DashboardWindow.qml</file>
+        <file>qml/theme/Theme.qml</file>
+        <file>qml/theme/DarkTheme.qml</file>
+        <file>modules/core/ModuleLoader.qml</file>
+        <file>modules/core/qmldir</file>
+        <file>modules/android-auto/AndroidAutoModule.qml</file>
+        <file>modules/android-auto/social-android.svg</file>
+    </qresource>
+</RCC>
