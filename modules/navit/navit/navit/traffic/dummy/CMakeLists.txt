@@ -1,1 +1,0 @@
-module_add_library(traffic_dummy traffic_dummy.c)

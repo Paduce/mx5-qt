@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/HUDSerial">
-        <file>SerialSettings.qml</file>
-    </qresource>
-</RCC>
