@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/AndroidAuto">
+        <file>social-android.svg</file>
+        <file>nativeAA.qml</file>
+    </qresource>
+</RCC>

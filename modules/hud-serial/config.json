@@ -1,0 +1,26 @@
+{
+    "name":"HUDSerialPlugin",
+    "label" : "Car",
+    "config" :{
+        "type":"loader",
+        "source":"qrc:/HUDSerial/SerialSettings.qml",
+        "settings" : [
+            {
+                "name": "car",
+                "type": "string"
+            },
+            {
+                "name": "car_make",
+                "type": "string"
+            },
+            {
+                "name": "serial_port",
+                "type": "string"
+            },
+            {
+                "name": "serial_speed",
+                "type": "uint"
+            }
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "name": "HVACPlugin",
+    "overlay": "qrc:/HVAC/ClimateControl/HVACOverlayTempSlider.qml",
+    "icon": "qrc:/HVAC/icons/thermometer.svg",
+    "label": "A/C"
+}
