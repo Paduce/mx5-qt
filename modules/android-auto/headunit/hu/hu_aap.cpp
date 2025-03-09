@@ -1488,34 +1488,18 @@ int HUServer::processReceived(int tmo) {  //
             size_t cur_vec = temp_assembly_buffer->size();
             temp_assembly_buffer->resize(cur_vec + frame_len);  // just incase
 
-            int bytes_written =
-                BIO_write(m_sslWriteBio, &enc_buf[header_size],
-                          frame_len);  // Write encrypted to SSL input BIO
+            int bytes_written = BIO_write(m_sslWriteBio, &enc_buf[header_size], frame_len);
             if (bytes_written <= 0) {
-                loge("BIO_write() bytes_written: %d", bytes_written);
+                loge("BIO_write() bytes_written: %d, error: %s", 
+                    bytes_written, 
+                    ERR_error_string(ERR_get_error(), NULL));
+                // Try to recover if possible instead of immediate failure
+                if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                    logd("BIO_write temporary error, continuing...");
+                    continue; // Try with the next fragment
+                }
                 return (-1);
-            }
-            if (bytes_written != frame_len)
-                loge("BIO_write() len: %d  bytes_written: %d  chan: %d %s",
-                     frame_len, bytes_written, chan, getChannel((ServiceChannels)chan));
-            else if (ena_log_verbo)
-                logd("BIO_write() len: %d  bytes_written: %d  chan: %d %s",
-                     frame_len, bytes_written, chan, getChannel((ServiceChannels)chan));
-
-            int bytes_read =
-                SSL_read(m_ssl, &(*temp_assembly_buffer)[cur_vec],
-                         frame_len);  // Read decrypted to decrypted rx buf
-            if (bytes_read <= 0 || bytes_read > frame_len) {
-                loge("SSL_read() bytes_read: %d  errno: %d", bytes_read, errno);
-                logSSLReturnCode(bytes_read);
-                return (-1);  // Fatal so return error and de-initialize; Should
-                              // we be able to recover, if Transport data got
-                              // corrupted ??
-            }
-            if (ena_log_verbo) logd("SSL_read() bytes_read: %d", bytes_read);
-
-            temp_assembly_buffer->resize(cur_vec + bytes_read);
-        } else {
+            } else {
             temp_assembly_buffer->insert(temp_assembly_buffer->end(),
                                          &enc_buf[header_size],
                                          &enc_buf[frame_len + header_size]);
@@ -1534,10 +1518,14 @@ int HUServer::processReceived(int tmo) {  //
             loge("Error iaap_msg_process() ret: %d  ", ret);
             return (ret);
         }
+
+    
     }
 
     return (ret);  // Return value from the last iaap_recv_dec_process() call;
                    // should be 0
+}
+
 }
 
 std::map<std::string, int> HUServer::getResolutions() {

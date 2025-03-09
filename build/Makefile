@@ -491,12 +491,22 @@ compiler_moc_header_clean:
 release/.moc/moc_androidauto.cpp: ../modules/android-auto/androidauto.h \
 		../modules/android-auto/headunit.h \
 		../modules/android-auto/qgstvideobuffer.h \
+		../modules/android-auto/headunit/common/glib_utils.h \
+		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
+		../modules/android-auto/headunit/hu/hu_ssl.h \
+		../modules/android-auto/headunit/hu/hu_uti.h \
 		release/.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/pduce/mx5-qt/build/release/.moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pduce/mx5-qt -I'/home/pduce/mx5-qt/$PWD/modules/android-auto/headunit/hu' -I'/home/pduce/mx5-qt/$PWD/modules/android-auto/headunit/hu/generated.x64' -I'/home/pduce/mx5-qt/$PWD/modules/android-auto/headunit/common' -I'/home/pduce/mx5-qt/$PWD/includes' -I/usr/include/gstreamer-1.0 -I/usr/include/x86_64-linux-gnu -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/orc-0.4 -I/usr/include/libusb-1.0 -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuickControls2 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQmlModels -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtBluetooth -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../modules/android-auto/androidauto.h -o release/.moc/moc_androidauto.cpp
 
 release/.moc/moc_headunit.cpp: ../modules/android-auto/headunit.h \
 		../modules/android-auto/qgstvideobuffer.h \
+		../modules/android-auto/headunit/common/glib_utils.h \
+		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
+		../modules/android-auto/headunit/hu/hu_ssl.h \
+		../modules/android-auto/headunit/hu/hu_uti.h \
 		release/.moc/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/pduce/mx5-qt/build/release/.moc/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pduce/mx5-qt -I'/home/pduce/mx5-qt/$PWD/modules/android-auto/headunit/hu' -I'/home/pduce/mx5-qt/$PWD/modules/android-auto/headunit/hu/generated.x64' -I'/home/pduce/mx5-qt/$PWD/modules/android-auto/headunit/common' -I'/home/pduce/mx5-qt/$PWD/includes' -I/usr/include/gstreamer-1.0 -I/usr/include/x86_64-linux-gnu -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/orc-0.4 -I/usr/include/libusb-1.0 -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuickControls2 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQmlModels -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtBluetooth -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../modules/android-auto/headunit.h -o release/.moc/moc_headunit.cpp
@@ -517,25 +527,42 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 release/.obj/main.o: ../main.cpp ../modules/android-auto/androidauto.h \
 		../modules/android-auto/headunit.h \
-		../modules/android-auto/qgstvideobuffer.h
+		../modules/android-auto/qgstvideobuffer.h \
+		../modules/android-auto/headunit/common/glib_utils.h \
+		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
+		../modules/android-auto/headunit/hu/hu_ssl.h \
+		../modules/android-auto/headunit/hu/hu_uti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/main.o ../main.cpp
 
 release/.obj/androidauto.o: ../modules/android-auto/androidauto.cpp ../modules/android-auto/androidauto.h \
 		../modules/android-auto/headunit.h \
-		../modules/android-auto/qgstvideobuffer.h
+		../modules/android-auto/qgstvideobuffer.h \
+		../modules/android-auto/headunit/common/glib_utils.h \
+		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
+		../modules/android-auto/headunit/hu/hu_ssl.h \
+		../modules/android-auto/headunit/hu/hu_uti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/androidauto.o ../modules/android-auto/androidauto.cpp
 
 release/.obj/headunit.o: ../modules/android-auto/headunit.cpp ../modules/android-auto/headunit.h \
-		../modules/android-auto/qgstvideobuffer.h
+		../modules/android-auto/qgstvideobuffer.h \
+		../modules/android-auto/headunit/common/glib_utils.h \
+		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
+		../modules/android-auto/headunit/hu/hu_ssl.h \
+		../modules/android-auto/headunit/hu/hu_uti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/headunit.o ../modules/android-auto/headunit.cpp
 
 release/.obj/hu_aad.o: ../modules/android-auto/headunit/hu/hu_aad.cpp ../modules/android-auto/headunit/hu/hu_uti.h \
 		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
 		../modules/android-auto/headunit/hu/hu_ssl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/hu_aad.o ../modules/android-auto/headunit/hu/hu_aad.cpp
 
 release/.obj/hu_aap.o: ../modules/android-auto/headunit/hu/hu_aap.cpp ../modules/android-auto/headunit/hu/hu_aad.h \
 		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
 		../modules/android-auto/headunit/hu/hu_ssl.h \
 		../modules/android-auto/headunit/hu/hu_uti.h \
 		../modules/android-auto/headunit/hu/hu_tcp.h \
@@ -543,23 +570,27 @@ release/.obj/hu_aap.o: ../modules/android-auto/headunit/hu/hu_aap.cpp ../modules
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/hu_aap.o ../modules/android-auto/headunit/hu/hu_aap.cpp
 
 release/.obj/hu_ssl.o: ../modules/android-auto/headunit/hu/hu_ssl.cpp ../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
 		../modules/android-auto/headunit/hu/hu_ssl.h \
 		../modules/android-auto/headunit/hu/hu_uti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/hu_ssl.o ../modules/android-auto/headunit/hu/hu_ssl.cpp
 
 release/.obj/hu_tcp.o: ../modules/android-auto/headunit/hu/hu_tcp.cpp ../modules/android-auto/headunit/hu/hu_tcp.h \
 		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
 		../modules/android-auto/headunit/hu/hu_ssl.h \
 		../modules/android-auto/headunit/hu/hu_uti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/hu_tcp.o ../modules/android-auto/headunit/hu/hu_tcp.cpp
 
 release/.obj/hu_usb.o: ../modules/android-auto/headunit/hu/hu_usb.cpp ../modules/android-auto/headunit/hu/hu_usb.h \
 		../modules/android-auto/headunit/hu/hu_aap.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h \
 		../modules/android-auto/headunit/hu/hu_ssl.h \
 		../modules/android-auto/headunit/hu/hu_uti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/hu_usb.o ../modules/android-auto/headunit/hu/hu_usb.cpp
 
-release/.obj/hu_uti.o: ../modules/android-auto/headunit/hu/hu_uti.cpp ../modules/android-auto/headunit/hu/hu_uti.h
+release/.obj/hu_uti.o: ../modules/android-auto/headunit/hu/hu_uti.cpp ../modules/android-auto/headunit/hu/hu_uti.h \
+		../modules/android-auto/headunit/hu/generated.x64/hu.pb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/.obj/hu_uti.o ../modules/android-auto/headunit/hu/hu_uti.cpp
 
 release/.obj/hu.pb.o: ../modules/android-auto/headunit/hu/generated.x64/hu.pb.cc ../modules/android-auto/headunit/hu/generated.x64/hu.pb.h

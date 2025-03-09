@@ -1,3 +1,5 @@
+// In main.qml, update the imports and component usage:
+
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
@@ -5,7 +7,9 @@ import QtQuick.Layouts 1.12
 
 import "theme"
 import "../modules/core"
-import "../modules/android-auto"
+
+// Remove this line: 
+// import "../modules/android-auto" as AndroidAuto
 
 DashboardWindow {
     id: root
@@ -74,18 +78,24 @@ DashboardWindow {
         anchors.bottom: parent.bottom
         color: "transparent"
         
-        // Load the Android Auto module
-        AndroidAutoModule {
-            id: androidAutoModule
+        // Load the Android Auto module with direct import
+        Loader {
+            id: androidAutoLoader
             anchors.fill: parent
-            visible: active
-            active: false // Will be set to true when USB device connects
+            source: "../modules/android-auto/AndroidAutoModule.qml"
+            asynchronous: false
             
-            // For demo purposes, toggle Android Auto with a key press
-            // In a real implementation, this would be triggered by USB detection
-            Keys.onPressed: {
-                if (event.key === Qt.Key_A) {
-                    active = !active;
+            // This property will be accessible in the loaded module
+            property bool active: status === Loader.Ready && item && item.active
+            
+            onLoaded: {
+                console.log("AndroidAutoModule loaded")
+            }
+            
+            onStatusChanged: {
+                console.log("AndroidAutoLoader status: " + status)
+                if (status === Loader.Error) {
+                    console.error("Failed to load AndroidAutoModule")
                 }
             }
         }
@@ -94,7 +104,7 @@ DashboardWindow {
         Rectangle {
             anchors.fill: parent
             color: theme.backgroundColor
-            visible: !androidAutoModule.active
+            visible: !androidAutoLoader.active
             
             ColumnLayout {
                 anchors.centerIn: parent
@@ -113,20 +123,12 @@ DashboardWindow {
                     font.pixelSize: 18
                     Layout.alignment: Qt.AlignHCenter
                 }
-                
-                Button {
-                    text: "Simulate USB Connection"
-                    Layout.alignment: Qt.AlignHCenter
-                    onClicked: {
-                        androidAutoModule.active = true;
-                    }
-                }
             }
         }
     }
     
     // Set focus to receive key events
     Component.onCompleted: {
-        contentArea.forceActiveFocus();
+        contentArea.forceActiveFocus()
     }
 }

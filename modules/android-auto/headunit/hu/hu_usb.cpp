@@ -194,28 +194,27 @@ void HUTransportStreamUSB::usb_recv_thread_main() {
     timeval zero_tv;
     memset(&zero_tv, 0, sizeof(zero_tv));
 
-    while (poll(usb_thread_event_fds.data(), usb_thread_event_fds.size(), -1) >=
-           0) {
+    while (poll(usb_thread_event_fds.data(), usb_thread_event_fds.size(), -1) >= 0) {
         // wakeup, something happened
         if (usb_thread_event_fds[0].revents == usb_thread_event_fds[0].events) {
             logd("Requested to exit");
             break;
         }
-        int iusb_state =
-            libusb_handle_events_timeout_completed(m_usbContext, &zero_tv, nullptr);
+        int iusb_state = libusb_handle_events_timeout_completed(m_usbContext, &zero_tv, nullptr);
         if (iusb_state) {
+            loge("libusb_handle_events_timeout_completed error: %d (%s)", 
+                 iusb_state, libusb_strerror((enum libusb_error)iusb_state));
             break;
         }
     }
-    logd("libusb_handle_events_completed: %d (%s)", m_state,
-         state_get(m_state));
-
     logd("USB thread exit");
 
-    // Wake up the reader if required
+    // Wake up the reader if required - with better error handling
     int errData = -1;
-    if (write(m_errorWriteFD, &errData, sizeof(errData)) < 0) {
-        loge("Error when writing to error_write_fd");
+    if (m_errorWriteFD >= 0) {
+        if (write(m_errorWriteFD, &errData, sizeof(errData)) < 0) {
+            loge("Error when writing to error_write_fd: %s", strerror(errno));
+        }
     }
 }
 

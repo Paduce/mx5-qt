@@ -250,13 +250,15 @@ int HUServer::beginSSLHandshake() {
 }
 
 int HUServer::handleSSLHandshake(byte *buf, int len) {
-    int ret =
-        BIO_write(m_sslWriteBio, buf, len);  // Write to the BIO Server response
+    int ret = BIO_write(m_sslWriteBio, buf, len);
     if (ret <= 0) {
-        loge("BIO_write() server rsp ret: %d", ret);
+        loge("BIO_write() server rsp ret: %d, error: %s", 
+             ret, 
+             ERR_error_string(ERR_get_error(), NULL));
         logSSLReturnCode(ret);
         logSSLInfo();
-        //        g_free(hs_buf);
+        // Add a small delay before returning
+        ms_sleep(100);
         return (-1);
     }
     logd("BIO_write() server rsp ret: %d", ret);

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Headunit_t {
-    QByteArrayData data[31];
-    char stringdata0[363];
+    QByteArrayData data[33];
+    char stringdata0[390];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,37 +45,39 @@ QT_MOC_LITERAL(9, 108, 18), // "receivedVideoFrame"
 QT_MOC_LITERAL(10, 127, 11), // "QVideoFrame"
 QT_MOC_LITERAL(11, 139, 5), // "frame"
 QT_MOC_LITERAL(12, 145, 15), // "playbackStarted"
-QT_MOC_LITERAL(13, 161, 9), // "mouseDown"
-QT_MOC_LITERAL(14, 171, 5), // "point"
-QT_MOC_LITERAL(15, 177, 9), // "mouseMove"
-QT_MOC_LITERAL(16, 187, 7), // "mouseUp"
-QT_MOC_LITERAL(17, 195, 8), // "keyEvent"
-QT_MOC_LITERAL(18, 204, 3), // "key"
-QT_MOC_LITERAL(19, 208, 17), // "videoFrameHandler"
-QT_MOC_LITERAL(20, 226, 11), // "outputWidth"
-QT_MOC_LITERAL(21, 238, 12), // "outputHeight"
-QT_MOC_LITERAL(22, 251, 10), // "videoWidth"
-QT_MOC_LITERAL(23, 262, 11), // "videoHeight"
-QT_MOC_LITERAL(24, 274, 6), // "status"
-QT_MOC_LITERAL(25, 281, 9), // "hu_status"
-QT_MOC_LITERAL(26, 291, 12), // "videoSurface"
-QT_MOC_LITERAL(27, 304, 22), // "QAbstractVideoSurface*"
-QT_MOC_LITERAL(28, 327, 13), // "NO_CONNECTION"
-QT_MOC_LITERAL(29, 341, 13), // "VIDEO_WAITING"
-QT_MOC_LITERAL(30, 355, 7) // "RUNNING"
+QT_MOC_LITERAL(13, 161, 16), // "videoSinkChanged"
+QT_MOC_LITERAL(14, 178, 9), // "mouseDown"
+QT_MOC_LITERAL(15, 188, 5), // "point"
+QT_MOC_LITERAL(16, 194, 9), // "mouseMove"
+QT_MOC_LITERAL(17, 204, 7), // "mouseUp"
+QT_MOC_LITERAL(18, 212, 8), // "keyEvent"
+QT_MOC_LITERAL(19, 221, 3), // "key"
+QT_MOC_LITERAL(20, 225, 17), // "videoFrameHandler"
+QT_MOC_LITERAL(21, 243, 11), // "outputWidth"
+QT_MOC_LITERAL(22, 255, 12), // "outputHeight"
+QT_MOC_LITERAL(23, 268, 10), // "videoWidth"
+QT_MOC_LITERAL(24, 279, 11), // "videoHeight"
+QT_MOC_LITERAL(25, 291, 6), // "status"
+QT_MOC_LITERAL(26, 298, 9), // "hu_status"
+QT_MOC_LITERAL(27, 308, 12), // "videoSurface"
+QT_MOC_LITERAL(28, 321, 22), // "QAbstractVideoSurface*"
+QT_MOC_LITERAL(29, 344, 9), // "videoSink"
+QT_MOC_LITERAL(30, 354, 13), // "NO_CONNECTION"
+QT_MOC_LITERAL(31, 368, 13), // "VIDEO_WAITING"
+QT_MOC_LITERAL(32, 382, 7) // "RUNNING"
 
     },
     "Headunit\0outputResized\0\0videoResized\0"
     "deviceConnected\0notification\0"
     "btConnectionRequest\0address\0statusChanged\0"
     "receivedVideoFrame\0QVideoFrame\0frame\0"
-    "playbackStarted\0mouseDown\0point\0"
-    "mouseMove\0mouseUp\0keyEvent\0key\0"
-    "videoFrameHandler\0outputWidth\0"
-    "outputHeight\0videoWidth\0videoHeight\0"
-    "status\0hu_status\0videoSurface\0"
-    "QAbstractVideoSurface*\0NO_CONNECTION\0"
-    "VIDEO_WAITING\0RUNNING"
+    "playbackStarted\0videoSinkChanged\0"
+    "mouseDown\0point\0mouseMove\0mouseUp\0"
+    "keyEvent\0key\0videoFrameHandler\0"
+    "outputWidth\0outputHeight\0videoWidth\0"
+    "videoHeight\0status\0hu_status\0videoSurface\0"
+    "QAbstractVideoSurface*\0videoSink\0"
+    "NO_CONNECTION\0VIDEO_WAITING\0RUNNING"
 };
 #undef QT_MOC_LITERAL
 
@@ -85,28 +87,29 @@ static const uint qt_meta_data_Headunit[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
-       6,  102, // properties
-       1,  126, // enums/sets
+      13,   14, // methods
+       7,  108, // properties
+       1,  136, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x06 /* Public */,
-       3,    0,   75,    2, 0x06 /* Public */,
-       4,    1,   76,    2, 0x06 /* Public */,
-       6,    1,   79,    2, 0x06 /* Public */,
-       8,    0,   82,    2, 0x06 /* Public */,
-       9,    1,   83,    2, 0x06 /* Public */,
-      12,    0,   86,    2, 0x06 /* Public */,
+       1,    0,   79,    2, 0x06 /* Public */,
+       3,    0,   80,    2, 0x06 /* Public */,
+       4,    1,   81,    2, 0x06 /* Public */,
+       6,    1,   84,    2, 0x06 /* Public */,
+       8,    0,   87,    2, 0x06 /* Public */,
+       9,    1,   88,    2, 0x06 /* Public */,
+      12,    0,   91,    2, 0x06 /* Public */,
+      13,    0,   92,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      13,    1,   87,    2, 0x0a /* Public */,
-      15,    1,   90,    2, 0x0a /* Public */,
-      16,    1,   93,    2, 0x0a /* Public */,
-      17,    1,   96,    2, 0x0a /* Public */,
-      19,    1,   99,    2, 0x0a /* Public */,
+      14,    1,   93,    2, 0x0a /* Public */,
+      16,    1,   96,    2, 0x0a /* Public */,
+      17,    1,   99,    2, 0x0a /* Public */,
+      18,    1,  102,    2, 0x0a /* Public */,
+      20,    1,  105,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -116,21 +119,23 @@ static const uint qt_meta_data_Headunit[] = {
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 10,   11,
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Bool, QMetaType::QPoint,   14,
-    QMetaType::Bool, QMetaType::QPoint,   14,
-    QMetaType::Bool, QMetaType::QPoint,   14,
-    QMetaType::Bool, QMetaType::QString,   18,
+    QMetaType::Bool, QMetaType::QPoint,   15,
+    QMetaType::Bool, QMetaType::QPoint,   15,
+    QMetaType::Bool, QMetaType::QPoint,   15,
+    QMetaType::Bool, QMetaType::QString,   19,
     QMetaType::Void, 0x80000000 | 10,   11,
 
  // properties: name, type, flags
-      20, QMetaType::Int, 0x00495003,
       21, QMetaType::Int, 0x00495003,
-      22, QMetaType::Int, 0x00495001,
+      22, QMetaType::Int, 0x00495003,
       23, QMetaType::Int, 0x00495001,
-      24, 0x80000000 | 25, 0x00495009,
-      26, 0x80000000 | 27, 0x0009510b,
+      24, QMetaType::Int, 0x00495001,
+      25, 0x80000000 | 26, 0x00495009,
+      27, 0x80000000 | 28, 0x0009510b,
+      29, QMetaType::QObjectStar, 0x00495001,
 
  // properties: notify_signal_id
        0,
@@ -139,14 +144,15 @@ static const uint qt_meta_data_Headunit[] = {
        1,
        4,
        0,
+       7,
 
  // enums: name, alias, flags, count, data
-      25,   25, 0x0,    3,  131,
+      26,   26, 0x0,    3,  141,
 
  // enum data: key, value
-      28, uint(Headunit::NO_CONNECTION),
-      29, uint(Headunit::VIDEO_WAITING),
-      30, uint(Headunit::RUNNING),
+      30, uint(Headunit::NO_CONNECTION),
+      31, uint(Headunit::VIDEO_WAITING),
+      32, uint(Headunit::RUNNING),
 
        0        // eod
 };
@@ -164,15 +170,16 @@ void Headunit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 4: _t->statusChanged(); break;
         case 5: _t->receivedVideoFrame((*reinterpret_cast< const QVideoFrame(*)>(_a[1]))); break;
         case 6: _t->playbackStarted(); break;
-        case 7: { bool _r = _t->mouseDown((*reinterpret_cast< QPoint(*)>(_a[1])));
+        case 7: _t->videoSinkChanged(); break;
+        case 8: { bool _r = _t->mouseDown((*reinterpret_cast< QPoint(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 8: { bool _r = _t->mouseMove((*reinterpret_cast< QPoint(*)>(_a[1])));
+        case 9: { bool _r = _t->mouseMove((*reinterpret_cast< QPoint(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 9: { bool _r = _t->mouseUp((*reinterpret_cast< QPoint(*)>(_a[1])));
+        case 10: { bool _r = _t->mouseUp((*reinterpret_cast< QPoint(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 10: { bool _r = _t->keyEvent((*reinterpret_cast< QString(*)>(_a[1])));
+        case 11: { bool _r = _t->keyEvent((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 11: _t->videoFrameHandler((*reinterpret_cast< const QVideoFrame(*)>(_a[1]))); break;
+        case 12: _t->videoFrameHandler((*reinterpret_cast< const QVideoFrame(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -185,7 +192,7 @@ void Headunit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QVideoFrame >(); break;
             }
             break;
-        case 11:
+        case 12:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -244,6 +251,13 @@ void Headunit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
                 return;
             }
         }
+        {
+            using _t = void (Headunit::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Headunit::videoSinkChanged)) {
+                *result = 7;
+                return;
+            }
+        }
     } else if (_c == QMetaObject::RegisterPropertyMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
@@ -264,6 +278,7 @@ void Headunit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 3: *reinterpret_cast< int*>(_v) = _t->videoHeight(); break;
         case 4: *reinterpret_cast< hu_status*>(_v) = _t->status(); break;
         case 5: *reinterpret_cast< QAbstractVideoSurface**>(_v) = _t->videoSurface(); break;
+        case 6: *reinterpret_cast< QObject**>(_v) = _t->videoSink(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -320,29 +335,29 @@ int Headunit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 6;
+        _id -= 7;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
@@ -391,6 +406,12 @@ void Headunit::receivedVideoFrame(const QVideoFrame & _t1)
 void Headunit::playbackStarted()
 {
     QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
+}
+
+// SIGNAL 7
+void Headunit::videoSinkChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -46,10 +46,19 @@ public:
     Q_INVOKABLE void startHU();
     Q_INVOKABLE void stopHU();
 
+    Q_INVOKABLE void startMedia();
+
+    Q_PROPERTY(QObject* videoSink READ videoSink NOTIFY videoSinkChanged)
+
+    // Then add the method implementation:
+    QObject* videoSink() const { return headunit; }
+
+
 signals:
     void playbackStarted();
     void message(QString id, QVariant message);
     void statusChanged();
+    void videoSinkChanged();
 
 public slots:
     void eventMessage(QString id, QVariant message);

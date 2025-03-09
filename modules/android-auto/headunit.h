@@ -31,31 +31,24 @@ private:
 
 public:
     DesktopEventCallbacks(Headunit *hu) { headunit = hu; }
-    int MediaPacket(AndroidAuto::ServiceChannels chan, uint64_t timestamp, const byte *buf,
-                    int len) override;
-    int MediaStart(AndroidAuto::ServiceChannels chan) override;
-    int MediaStop(AndroidAuto::ServiceChannels chan) override;
-    void MediaSetupComplete(AndroidAuto::ServiceChannels chan) override;
-    void DisconnectionOrError() override;
-    void CustomizeOutputChannel(
-        AndroidAuto::ServiceChannels chan,
-        HU::ChannelDescriptor::OutputStreamChannel &streamChannel) override;
-    void AudioFocusRequest(
-        AndroidAuto::ServiceChannels chan, const HU::AudioFocusRequest &request) override;
-    void VideoFocusRequest(
-        AndroidAuto::ServiceChannels chan, const HU::VideoFocusRequest &request) override;
-    std::string GetCarBluetoothAddress() override;
-    void PhoneBluetoothReceived(std::string address) override;
+    virtual ~DesktopEventCallbacks();
 
-    void VideoFocusHappened(bool hasFocus, bool unrequested);
-    void HandlePhoneStatus(AndroidAuto::IHUConnectionThreadInterface& stream,
-                           const HU::PhoneStatus& phoneStatus) override;
-    void HandleNaviStatus(AndroidAuto::IHUConnectionThreadInterface& stream,
-                          const HU::NAVMessagesStatus& request) override;
-    void HandleNaviTurn(AndroidAuto::IHUConnectionThreadInterface& stream,
-                        const HU::NAVTurnMessage& request) override;
-    void HandleNaviTurnDistance(AndroidAuto::IHUConnectionThreadInterface& stream,
-                                const HU::NAVDistanceMessage& request) override;
+    virtual int MediaPacket(AndroidAuto::ServiceChannels chan, uint64_t timestamp, const byte *buf, int len) override;
+    virtual int MediaStart(AndroidAuto::ServiceChannels chan) override;
+    virtual int MediaStop(AndroidAuto::ServiceChannels chan) override;
+    virtual void MediaSetupComplete(AndroidAuto::ServiceChannels chan) override;
+    virtual void DisconnectionOrError() override;
+    virtual void CustomizeOutputChannel(AndroidAuto::ServiceChannels chan,
+                                        HU::ChannelDescriptor::OutputStreamChannel &streamChannel) override;
+    virtual void AudioFocusRequest(AndroidAuto::ServiceChannels chan, const HU::AudioFocusRequest &request) override;
+    virtual void VideoFocusRequest(AndroidAuto::ServiceChannels chan, const HU::VideoFocusRequest &request) override;
+    virtual std::string GetCarBluetoothAddress() override;
+    virtual void PhoneBluetoothReceived(std::string address) override;
+
+    virtual void HandlePhoneStatus(AndroidAuto::IHUConnectionThreadInterface& stream, const HU::PhoneStatus& phoneStatus) override;
+    virtual void HandleNaviStatus(AndroidAuto::IHUConnectionThreadInterface& stream, const HU::NAVMessagesStatus& request) override;
+    virtual void HandleNaviTurn(AndroidAuto::IHUConnectionThreadInterface& stream, const HU::NAVTurnMessage& request) override;
+    virtual void HandleNaviTurnDistance(AndroidAuto::IHUConnectionThreadInterface& stream, const HU::NAVDistanceMessage& request) override;
 };
 
 class Headunit : public QObject {
@@ -65,8 +58,9 @@ class Headunit : public QObject {
     Q_PROPERTY(int videoWidth READ videoWidth NOTIFY videoResized)
     Q_PROPERTY(int videoHeight READ videoHeight NOTIFY videoResized)
     Q_PROPERTY(hu_status status READ status NOTIFY statusChanged)
-    Q_PROPERTY(QAbstractVideoSurface *videoSurface READ videoSurface WRITE
-                   setVideoSurface)
+    Q_PROPERTY(QAbstractVideoSurface *videoSurface READ videoSurface WRITE setVideoSurface)
+    // Expose videoSink for QML VideoOutput usage.
+    Q_PROPERTY(QObject* videoSink READ videoSink NOTIFY videoSinkChanged)
 
 public:
     Headunit(QObject *parent = nullptr);
@@ -75,8 +69,8 @@ public:
     int init();
 
     enum hu_status { NO_CONNECTION, VIDEO_WAITING, RUNNING };
-
     Q_ENUMS(hu_status)
+
     void stopPipelines();
     void setVideoWidth(const int a);
     void setVideoHeight(const int a);
@@ -93,8 +87,13 @@ public:
     void setVoiceVolume(uint8_t volume);
     void setNigthmode(bool night);
 
+    void forceStartVideo();
+
     QAbstractVideoSurface *videoSurface() const { return m_surface; }
     void setVideoSurface(QAbstractVideoSurface *surface);
+
+    // videoSink returns the same video surface.
+    QObject* videoSink() const { return m_surface; }
 
     GstElement *mic_pipeline = nullptr;
     GstElement *aud_pipeline = nullptr;
@@ -108,6 +107,7 @@ public:
     uint8_t m_voicePipelineVolume = 100;
 
     AndroidAuto::IHUAnyThreadInterface *g_hu = nullptr;
+
 signals:
     void outputResized();
     void videoResized();
@@ -116,22 +116,23 @@ signals:
     void statusChanged();
 
     void receivedVideoFrame(const QVideoFrame &frame);
-
     void playbackStarted();
+
+    // Signal to notify QML when videoSink changes.
+    void videoSinkChanged();
+
 
 public slots:
     bool mouseDown(QPoint point);
     bool mouseMove(QPoint point);
     bool mouseUp(QPoint point);
     bool keyEvent(QString key);
-
     void videoFrameHandler(const QVideoFrame &frame);
 
 private:
     AndroidAuto::HUServer *headunit;
     DesktopEventCallbacks callbacks;
-    HU::TouchInfo::TOUCH_ACTION lastAction =
-        HU::TouchInfo::TOUCH_ACTION_RELEASE;
+    HU::TouchInfo::TOUCH_ACTION lastAction = HU::TouchInfo::TOUCH_ACTION_RELEASE;
     int m_videoWidth = 800;
     int m_videoHeight = 480;
     int m_outputWidth = 800;
@@ -139,8 +140,7 @@ private:
     bool huStarted = false;
     hu_status m_status = NO_CONNECTION;
     static GstFlowReturn read_mic_data(GstElement *appsink, Headunit *_this);
-    static gboolean bus_callback(GstBus *bus, GstMessage *message,
-                                 gpointer *ptr);
+    static gboolean bus_callback(GstBus *bus, GstMessage *message, gpointer *ptr);
     void touchEvent(HU::TouchInfo::TOUCH_ACTION action, QPoint *point);
     static uint64_t get_cur_timestamp();
     static GstFlowReturn newVideoSample(GstElement *appsink, Headunit *_this);
@@ -149,4 +149,5 @@ private:
     QVideoSurfaceFormat m_format;
     bool m_videoStarted = false;
 };
+
 #endif  // HEADUNITPLAYER_H

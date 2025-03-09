@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AndroidAutoPlugin_t {
-    QByteArrayData data[19];
-    char stringdata0[193];
+    QByteArrayData data[22];
+    char stringdata0[231];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,27 +38,31 @@ QT_MOC_LITERAL(2, 34, 0), // ""
 QT_MOC_LITERAL(3, 35, 7), // "message"
 QT_MOC_LITERAL(4, 43, 2), // "id"
 QT_MOC_LITERAL(5, 46, 13), // "statusChanged"
-QT_MOC_LITERAL(6, 60, 12), // "eventMessage"
-QT_MOC_LITERAL(7, 73, 15), // "huStatusChanged"
-QT_MOC_LITERAL(8, 89, 9), // "mouseDown"
-QT_MOC_LITERAL(9, 99, 5), // "point"
-QT_MOC_LITERAL(10, 105, 9), // "mouseMove"
-QT_MOC_LITERAL(11, 115, 7), // "mouseUp"
-QT_MOC_LITERAL(12, 123, 7), // "startHU"
-QT_MOC_LITERAL(13, 131, 6), // "stopHU"
-QT_MOC_LITERAL(14, 138, 6), // "status"
-QT_MOC_LITERAL(15, 145, 11), // "outputWidth"
-QT_MOC_LITERAL(16, 157, 12), // "outputHeight"
-QT_MOC_LITERAL(17, 170, 10), // "videoWidth"
-QT_MOC_LITERAL(18, 181, 11) // "videoHeight"
+QT_MOC_LITERAL(6, 60, 16), // "videoSinkChanged"
+QT_MOC_LITERAL(7, 77, 12), // "eventMessage"
+QT_MOC_LITERAL(8, 90, 15), // "huStatusChanged"
+QT_MOC_LITERAL(9, 106, 9), // "mouseDown"
+QT_MOC_LITERAL(10, 116, 5), // "point"
+QT_MOC_LITERAL(11, 122, 9), // "mouseMove"
+QT_MOC_LITERAL(12, 132, 7), // "mouseUp"
+QT_MOC_LITERAL(13, 140, 7), // "startHU"
+QT_MOC_LITERAL(14, 148, 6), // "stopHU"
+QT_MOC_LITERAL(15, 155, 10), // "startMedia"
+QT_MOC_LITERAL(16, 166, 6), // "status"
+QT_MOC_LITERAL(17, 173, 11), // "outputWidth"
+QT_MOC_LITERAL(18, 185, 12), // "outputHeight"
+QT_MOC_LITERAL(19, 198, 10), // "videoWidth"
+QT_MOC_LITERAL(20, 209, 11), // "videoHeight"
+QT_MOC_LITERAL(21, 221, 9) // "videoSink"
 
     },
     "AndroidAutoPlugin\0playbackStarted\0\0"
-    "message\0id\0statusChanged\0eventMessage\0"
-    "huStatusChanged\0mouseDown\0point\0"
-    "mouseMove\0mouseUp\0startHU\0stopHU\0"
-    "status\0outputWidth\0outputHeight\0"
-    "videoWidth\0videoHeight"
+    "message\0id\0statusChanged\0videoSinkChanged\0"
+    "eventMessage\0huStatusChanged\0mouseDown\0"
+    "point\0mouseMove\0mouseUp\0startHU\0stopHU\0"
+    "startMedia\0status\0outputWidth\0"
+    "outputHeight\0videoWidth\0videoHeight\0"
+    "videoSink"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,32 +72,35 @@ static const uint qt_meta_data_AndroidAutoPlugin[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
-       5,   88, // properties
+      12,   14, // methods
+       6,  100, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x06 /* Public */,
-       3,    2,   65,    2, 0x06 /* Public */,
-       5,    0,   70,    2, 0x06 /* Public */,
+       1,    0,   74,    2, 0x06 /* Public */,
+       3,    2,   75,    2, 0x06 /* Public */,
+       5,    0,   80,    2, 0x06 /* Public */,
+       6,    0,   81,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    2,   71,    2, 0x0a /* Public */,
-       7,    0,   76,    2, 0x08 /* Private */,
+       7,    2,   82,    2, 0x0a /* Public */,
+       8,    0,   87,    2, 0x08 /* Private */,
 
  // methods: name, argc, parameters, tag, flags
-       8,    1,   77,    2, 0x02 /* Public */,
-      10,    1,   80,    2, 0x02 /* Public */,
-      11,    1,   83,    2, 0x02 /* Public */,
-      12,    0,   86,    2, 0x02 /* Public */,
-      13,    0,   87,    2, 0x02 /* Public */,
+       9,    1,   88,    2, 0x02 /* Public */,
+      11,    1,   91,    2, 0x02 /* Public */,
+      12,    1,   94,    2, 0x02 /* Public */,
+      13,    0,   97,    2, 0x02 /* Public */,
+      14,    0,   98,    2, 0x02 /* Public */,
+      15,    0,   99,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString, QMetaType::QVariant,    4,    3,
+    QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
@@ -101,18 +108,20 @@ static const uint qt_meta_data_AndroidAutoPlugin[] = {
     QMetaType::Void,
 
  // methods: parameters
-    QMetaType::Bool, QMetaType::QPoint,    9,
-    QMetaType::Bool, QMetaType::QPoint,    9,
-    QMetaType::Bool, QMetaType::QPoint,    9,
+    QMetaType::Bool, QMetaType::QPoint,   10,
+    QMetaType::Bool, QMetaType::QPoint,   10,
+    QMetaType::Bool, QMetaType::QPoint,   10,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
  // properties: name, type, flags
-      14, QMetaType::Int, 0x00495001,
-      15, QMetaType::Int, 0x00095003,
-      16, QMetaType::Int, 0x00095003,
-      17, QMetaType::Int, 0x00095001,
-      18, QMetaType::Int, 0x00095001,
+      16, QMetaType::Int, 0x00495001,
+      17, QMetaType::Int, 0x00095003,
+      18, QMetaType::Int, 0x00095003,
+      19, QMetaType::Int, 0x00095001,
+      20, QMetaType::Int, 0x00095001,
+      21, QMetaType::QObjectStar, 0x00495001,
 
  // properties: notify_signal_id
        2,
@@ -120,6 +129,7 @@ static const uint qt_meta_data_AndroidAutoPlugin[] = {
        0,
        0,
        0,
+       3,
 
        0        // eod
 };
@@ -133,16 +143,18 @@ void AndroidAutoPlugin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 0: _t->playbackStarted(); break;
         case 1: _t->message((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QVariant(*)>(_a[2]))); break;
         case 2: _t->statusChanged(); break;
-        case 3: _t->eventMessage((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QVariant(*)>(_a[2]))); break;
-        case 4: _t->huStatusChanged(); break;
-        case 5: { bool _r = _t->mouseDown((*reinterpret_cast< QPoint(*)>(_a[1])));
+        case 3: _t->videoSinkChanged(); break;
+        case 4: _t->eventMessage((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QVariant(*)>(_a[2]))); break;
+        case 5: _t->huStatusChanged(); break;
+        case 6: { bool _r = _t->mouseDown((*reinterpret_cast< QPoint(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 6: { bool _r = _t->mouseMove((*reinterpret_cast< QPoint(*)>(_a[1])));
+        case 7: { bool _r = _t->mouseMove((*reinterpret_cast< QPoint(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 7: { bool _r = _t->mouseUp((*reinterpret_cast< QPoint(*)>(_a[1])));
+        case 8: { bool _r = _t->mouseUp((*reinterpret_cast< QPoint(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 8: _t->startHU(); break;
-        case 9: _t->stopHU(); break;
+        case 9: _t->startHU(); break;
+        case 10: _t->stopHU(); break;
+        case 11: _t->startMedia(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -168,6 +180,13 @@ void AndroidAutoPlugin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
                 return;
             }
         }
+        {
+            using _t = void (AndroidAutoPlugin::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AndroidAutoPlugin::videoSinkChanged)) {
+                *result = 3;
+                return;
+            }
+        }
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty) {
@@ -180,6 +199,7 @@ void AndroidAutoPlugin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 2: *reinterpret_cast< int*>(_v) = _t->m_outputHeight; break;
         case 3: *reinterpret_cast< int*>(_v) = _t->videoWidth(); break;
         case 4: *reinterpret_cast< int*>(_v) = _t->videoHeight(); break;
+        case 5: *reinterpret_cast< QObject**>(_v) = _t->videoSink(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -233,29 +253,29 @@ int AndroidAutoPlugin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 12;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 5;
+        _id -= 6;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
@@ -278,6 +298,12 @@ void AndroidAutoPlugin::message(QString _t1, QVariant _t2)
 void AndroidAutoPlugin::statusChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void AndroidAutoPlugin::videoSinkChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -7,6 +7,8 @@ AndroidAutoPlugin::AndroidAutoPlugin(QObject *parent) : QObject(parent)
 
     connect(headunit, &Headunit::playbackStarted, this, &AndroidAutoPlugin::playbackStarted);
     connect(headunit, &Headunit::statusChanged, this, &AndroidAutoPlugin::huStatusChanged);
+
+    connect(headunit, &Headunit::videoSinkChanged, this, &AndroidAutoPlugin::videoSinkChanged);
 }
 
 QObject *AndroidAutoPlugin::getContextProperty(){
@@ -37,9 +39,16 @@ void AndroidAutoPlugin::stopHU() {
 }
 
 void AndroidAutoPlugin::start() {
+    qDebug() << "AndroidAutoPlugin::startMedia called";
+    
+    // Force status to RUNNING to make sure video displays
+    if (headunit) {
+        headunit->setStatus(Headunit::RUNNING);
+    }
+    
+    // Now call the existing media start method
     headunit->startMedia();
 }
-
 void AndroidAutoPlugin::stop() {
     headunit->stopMedia();
 }
@@ -73,6 +82,20 @@ bool AndroidAutoPlugin::mouseUp(QPoint point) {
 }
 
 void AndroidAutoPlugin::huStatusChanged(){
+    qDebug() << "Android Auto status changed to:" << headunit->status();
+    
     emit message("connected", (headunit->status() > Headunit::NO_CONNECTION));
     emit statusChanged();
+}
+
+
+void AndroidAutoPlugin::startMedia() {
+    qDebug() << "AndroidAutoPlugin::startMedia called";
+    
+    if (headunit) {
+        qDebug() << "Setting status to RUNNING to force video display";
+        
+        // Force status to running - much simpler approach
+        headunit->setStatus(Headunit::RUNNING);
+    }
 }
